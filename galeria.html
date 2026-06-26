@@ -149,6 +149,7 @@ body{
     <a href="carta">Ver Carta</a>
     <a href="pedidosya">PedidosYa</a>
     <a href="ubicacion">Ubicación</a>
+	<a href="galeria">Ubicacion</a>
 	<a href="reservas">Reservar</a>
 	
 
@@ -158,14 +159,12 @@ body{
             Vie - Sáb · 17:30 — 03:00
         </p>
 
-        <img src="icon.png" alt="Logo" class="w-16 mx-auto">
+        <img src="icon1.png" alt="Logo" class="w-16 mx-auto">
     </div>
 </nav>
 
-<div class="max-w-6xl mx-auto px-5 py-8">
-
-    <img src="icon.png" alt="Terraza Ibiza" class="logo mb-10">
-
+<div class="max-w-6xl mx-auto px-5 py-8"
+	
 <h1 class="text-center text-3xl font-light tracking-[0.3em] mb-10">
     GALERÍA
 </h1>
@@ -270,6 +269,25 @@ document.addEventListener("keydown", function (e) {
         lightbox.classList.add("hidden");
     }
 });
+
+let startX = 0;
+let endX = 0;
+
+const lightboxImg = document.getElementById("lightboxImg");
+
+lightboxImg.addEventListener("touchstart", function (e) {
+    startX = e.touches[0].clientX;
+}, { passive: true });
+
+lightboxImg.addEventListener("touchend", function (e) {
+    endX = e.changedTouches[0].clientX;
+
+    if (startX - endX > 50) {
+        nextImg();
+    } else if (endX - startX > 50) {
+        prevImg();
+    }
+}, { passive: true });
 </script>
 <script>
 const menuBtn = document.getElementById("menuBtn");
