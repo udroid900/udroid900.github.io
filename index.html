@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Terraza Ibiza</title>
+
+<meta name="description" content="Terraza Ibiza Restobar en Peñaflor. Disfruta mojitos, piñas coladas, cócteles, tragos, pizzas, hamburguesas, sándwiches, promociones y delivery. Visítanos en Los Canales 256, Peñaflor.">
+
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+
+<meta name="author" content="Terraza Ibiza Restobar">
+
+<meta name="theme-color" content="#000000">
+
+<link rel="canonical" href="https://terrazaibiza.cl/">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_CL">
+<meta property="og:site_name" content="Terraza Ibiza Restobar">
+<meta property="og:title" content="Terraza Ibiza Restobar Peñaflor">
+<meta property="og:description" content="Restobar en Peñaflor con cócteles, tragos, pizzas, hamburguesas, promociones y delivery.">
+<meta property="og:url" content="terrazaibiza.cl/">
+<meta property="og:image" content="terrazaibiza.cl/icon.png">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Terraza Ibiza Restobar Peñaflor">
+<meta name="twitter:description" content="Mojitos, cócteles, pizzas, hamburguesas y promociones en Peñaflor.">
+<meta name="twitter:image" content="terrazaibiza.cl/icon.png">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Restaurant",
+  "name":"Terraza Ibiza Restobar",
+  "description":"Restobar en Peñaflor,cócteles clásicos, cócteles de autor, tragos, mojitos, pizzas, hamburguesas y promociones.",
+  "url":"terrazaibiza.cl/",
+  "image":"https://terrazaibiza.cl/icon.png",
+  "priceRange":"$$",
+  "servesCuisine":"Restobar",
+  "address":{
+    "@type":"PostalAddress",
+    "streetAddress":"Los Canales 256",
+    "addressLocality":"Peñaflor",
+    "addressRegion":"Región Metropolitana",
+    "addressCountry":"CL"
+  },
+  "sameAs":[
+    "https://instagram.com/terraza_ibizaa",
+    "https://facebook.com/ibizavana"
+  ]
+}
+</script>
+
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<style>
+
+ {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#000;
+    color:#fff;
+    min-height:100vh;
+    overflow-x:hidden;
+    font-family:system-ui,-apple-system,sans-serif;
+}
+
+.logo{
+    width:190px;
+    max-width:100%;
+    display:block;
+    margin:auto;
+}
+
+.card{
+    background:rgba(255,255,255,.03);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+    transition:.25s;
+}
+
+.card:hover{
+    filter:brightness(1.15);
+}
+
+.card img{
+    transition:.25s;
+}
+
+.card:hover img{
+    filter:brightness(1.08);
+}
+
+.socials a{
+    color:#fff;
+    opacity:.75;
+    transition:.25s;
+}
+
+.socials a:hover{
+    opacity:1;
+}
+
+.map-card{
+    background:rgba(255,255,255,.03);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+}
+
+.location-icon{
+    width:56px;
+    height:56px;
+    margin:auto;
+    border-radius:999px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(239,68,68,.10);
+}
+
+iframe{
+    border:none;
+    display:block;
+}
+
+a{
+    text-decoration:none;
+}
+.menu-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    width:52px;
+    height:52px;
+    border:none;
+    border-radius:16px;
+    background:rgba(255,255,255,.06);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:5px;
+    cursor:pointer;
+    z-index:1002;
+}
+
+.menu-btn span{
+    width:22px;
+    height:2px;
+    background:#fff;
+    border-radius:999px;
+    transition:.3s ease;
+}
+
+.menu-btn.active span:nth-child(1){
+    transform:translateY(7px) rotate(45deg);
+}
+
+.menu-btn.active span:nth-child(2){
+    opacity:0;
+}
+
+.menu-btn.active span:nth-child(3){
+    transform:translateY(-7px) rotate(-45deg);
+}
+
+.menu-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.5);
+    opacity:0;
+    visibility:hidden;
+    transition:.3s;
+    z-index:1000;
+}
+
+.menu-overlay.active{
+    opacity:1;
+    visibility:visible;
+}
+
+.mobile-menu{
+    position:fixed;
+    top:0;
+    right:-280px;
+    width:270px;
+    height:100vh;
+    background:rgba(10,10,10,.98);
+    backdrop-filter:blur(30px);
+    -webkit-backdrop-filter:blur(30px);
+    padding-top:90px;
+    display:flex;
+    flex-direction:column;
+    transition:.35s ease;
+    z-index:1001;
+}
+
+.mobile-menu.active{
+    right:0;
+}
+
+.mobile-menu a{
+    color:#fff;
+    text-decoration:none;
+    padding:18px 28px;
+    font-size:16px;
+    transition:.25s;
+}
+
+.mobile-menu a:hover{
+    background:rgba(255,255,255,.05);
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="bg-glow"></div>
+
+<div class="w-full relative h-80">
+
+    <img
+        src="portada.png"
+        class="w-full h-full object-cover"
+        alt="Terraza Ibiza">
+
+    <div class="absolute inset-0 bg-black/50"></div>
+
+    <div class="absolute top-5 left-0 right-0 text-center">
+        <h1 class="text-white text-4xl font-bold">
+            Terraza Ibiza
+        </h1>
+        <p class="text-white/80 text-sm mt-1">
+            Restobar • Peñaflor
+        </p>
+    </div>
+
+    <div class="absolute inset-0 flex items-center justify-center">
+        <img
+            src="icon.png"
+            class="w-28 h-28 object-contain rounded-full border-4 border-white bg-black"
+            alt="Logo">
+    </div>
+
+</div>
+
+<div class="max-w-2xl mx-auto px-6 py-12">
+
+
+
+
+
+</div>
+
+<button id="menuBtn" class="menu-btn" aria-label="Menú">
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
+
+<div id="menuOverlay" class="menu-overlay"></div>
+
+<nav id="mobileMenu" class="mobile-menu">
+    <a href="terrazaibiza.cl">Inicio</a>
+    <a href="carta.html">Ver Carta</a>
+    <a href="pedidosya.html">PedidosYa</a>
+    <a href="ubicacion.html">Ubicación</a>
+	<a href="reservas.html">Reservar</a>
+	 <div class="mt-auto text-center pb-10">
+        <p class="text-white/50 text-xs mb-4">
+            Lun - Jue · 17:30 — 01:30<br>
+            Vie - Sáb · 17:30 — 03:00
+        </p>
+
+        <img src="icon1.png" alt="Logo" class="w-16 mx-auto">
+    </div>
+</nav>
+
+
+
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const mobileMenu = document.getElementById("mobileMenu");
+const menuOverlay = document.getElementById("menuOverlay");
+
+function toggleMenu(){
+    menuBtn.classList.toggle("active");
+    mobileMenu.classList.toggle("active");
+    menuOverlay.classList.toggle("active");
+}
+
+menuBtn.addEventListener("click", toggleMenu);
+
+menuOverlay.addEventListener("click", () => {
+    menuBtn.classList.remove("active");
+    mobileMenu.classList.remove("active");
+    menuOverlay.classList.remove("active");
+});
+
+document.querySelectorAll(".mobile-menu a").forEach(link=>{
+    link.addEventListener("click",()=>{
+        menuBtn.classList.remove("active");
+        mobileMenu.classList.remove("active");
+        menuOverlay.classList.remove("active");
+    });
+});
+</script>
+
+<div class="flex justify-center">
+    <div class="grid grid-cols-2 gap-5 w-[94%] max-w-lg mx-auto">
+
+        <a href="carta.html" class="group relative block bg-white/5 border border-white/10 rounded-[30px] overflow-hidden transition-all duration-300 hover:border-yellow-400/50 hover:shadow-[0_0_20px_rgba(251,188,5,0.15)]">
+
+            <div class="h-40 overflow-hidden">
+                <img src="carta.png" alt="Carta Restobar" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+            </div>
+
+            <div class="p-4 text-center text-white">
+                <i class="fa-solid fa-utensils text-yellow-400 text-xl mb-2"></i>
+                <h2 class="font-bold text-sm tracking-wide">VER CARTA</h2>
+            </div>
+
+        </a>
+
+        <a href="pedidosya" class="group relative block bg-white/5 border border-white/10 rounded-[30px] overflow-hidden transition-all duration-300 hover:border-blue-400/50 hover:shadow-[0_0_20px_rgba(66,133,244,0.15)]">
+
+            <div class="h-40 overflow-hidden">
+                <img src="pedidosya.png" alt="PedidosYa" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+            </div>
+
+            <div class="p-4 text-center text-white">
+                <i class="fa-solid fa-motorcycle text-red-400 text-xl mb-2"></i>
+                <h2 class="font-bold text-sm tracking-wide">ENVÍO RÁPIDO</h2>
+            </div>
+
+        </a>
+
+    </div>
+</div>
+</div>
+
+    </div>
+<div class="mt-8 px-30">
+
+    <h2 class="text-white text-2xl font-bold text-center mb-4">
+        Conocenos
+    </h2>
+
+<p class="text-white/80 text-left leading-relaxed max-w-xl mx-auto">
+Nuestra Terraza Ibiza te hará disfrutar de momentos inolvidables. Tal y como la mayoría de críticos dicen, somos el secreto mejor guardado de Peñaflor. Nuestro ambiente cálido, amigable y festivo envuelve a cualquiera que busca un escape furtivo para disfrutar de la tradicional cocina española y mediterránea, con el acompañamiento de vinos, cervezas artesanales, cocktails de autor como tus clásicos favoritos.
+    Ya sea para compartir con amigos, celebrar una ocasión especial o simplemente disfrutar la noche, aquí encontrarás el lugar perfecto para crear momentos inolvidables.
+</p>
+<div class="mt-10 px-6">
+
+
+<div class="mt-10 px-4 flex justify-center">
+
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-3 max-w-4xl mx-auto">
+
+        <img src="london-mule.png" class="w-full h-60 object-cover rounded-xl cursor-pointer"
+             onclick="openImg(this.src)">
+
+        <img src="jardin-de-rosas.png" class="w-full h-60 object-cover rounded-xl cursor-pointer"
+             onclick="openImg(this.src)">
+
+        <img src="trago-ibiza.png" class="w-full h-60 object-cover rounded-xl cursor-pointer"
+             onclick="openImg(this.src)">
+
+        <img src="sunset-crunch.png" class="w-full h-60 object-cover rounded-xl cursor-pointer"
+             onclick="openImg(this.src)">
+
+        <img src="thai-plato.png" class="w-full h-60 object-cover rounded-xl cursor-pointer"
+             onclick="openImg(this.src)">
+
+        <img src="pizza-poseidon.png" class="w-full h-60 object-cover rounded-xl cursor-pointer"
+             onclick="openImg(this.src)">
+
+    </div>
+
+</div>
+
+<div id="imgModal" class="hidden fixed inset-0 bg-black/90 flex items-center justify-center z-50">
+    <img id="modalImg" class="max-w-[90%] max-h-[90%] rounded-xl">
+</div>
+
+<script>
+function openImg(src) {
+    document.getElementById('imgModal').classList.remove('hidden');
+    document.getElementById('modalImg').src = src;
+}
+
+document.getElementById('imgModal').addEventListener('click', function () {
+    this.classList.add('hidden');
+});
+</script>
+
+    </div>
+
+</div>
+
+</div>
+</div>
+<div class="text-center mt-8">
+    <a href="galeria"
+       class="inline-block text-white text-sm uppercase tracking-[0.2em] hover:text-white/70 transition">
+        Ver Galería →
+    </a>
+</div>
+
+<div class="text-center mt-12 mb-12">
+    <h3 class="text-white text-2xl font-light tracking-wide mb-8">
+        <i class="fas fa-calendar-alt text-blue-400 mr-3"></i>Horario
+    </h3>
+
+    <div class="space-y-6 text-white/70">
+        <p>
+            <span class="text-white block font-medium">Lunes a Jueves</span>
+            17:30 — 01:30
+        </p>
+
+        <p>
+            <span class="text-white block font-medium">Viernes a Sábado</span>
+            17:30 — 03:00
+        </p>
+
+        <div class="pt-4 border-t border-white/10">
+            <p class="text-yellow-400 font-semibold">
+                <i class="fas fa-cocktail mr-2"></i> Happy Hour
+            </p>
+            <p class="text-white">
+                Martes a Viernes<br>
+                18:00 — 22:00
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="mt-10">
+
+        <div class="text-center mb-5">
+
+            <div class="location-icon">
+                <i class="fa-solid fa-location-dot text-red-500 text-3xl"></i>
+            </div>
+
+            <h3 class="inline-block text-white text-sm uppercase tracking-[0.2em] hover:text-white/70 transition">
+                Visítanos
+            </h3>
+
+            <p class="text-white text-sm uppercase tracking-[0.2em]-400 mt-2">
+                Los Canales 256, Peñaflor
+            </p>
+
+        </div>
+
+     <div class="flex justify-center">
+    <div class="map-card overflow-hidden rounded-[30px] w-[90%] max-w-md">
+
+        <iframe
+            class="w-full h-64"
+            loading="lazy"
+            allowfullscreen
+            src="https://maps.google.com/maps?q=Los%20Canales%20256%20Pe%C3%B1aflor&t=&z=17&ie=UTF8&iwloc=&output=embed">
+        </iframe>
+
+    </div>
+</div>
+        </div>
+<div class="text-center mt-12 mb-8">
+
+    <a href="reservas"
+       class="group inline-flex items-center justify-center gap-3 px-10 py-4 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-600 text-black font-bold tracking-wider uppercase hover:from-yellow-300 hover:to-yellow-500 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(251,188,5,0.4)] shadow-lg">
+        
+        <i class="fas fa-calendar-check text-xl"></i>
+        <span>Reservar tu mesa</span>
+    </a>
+    
+    <p class="mt-4 text-white/50 text-sm font-light uppercase tracking-widest">
+        ¡Cupos limitados disponibles!
+    </p>
+</div>
+</div>
+</div>
+<div class="mt-20 border-t border-white/10 pt-10 pb-10">
+
+    <div class="text-center mb-10">
+<div class="flex flex-col items-center p-6 bg-white/5 border border-white/10 rounded-lg shadow-xl max-w-sm mx-auto text-center">
+    
+    <div class="mb-4">
+        <svg viewBox="0 0 24 24" width="64" height="64" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+        </svg>
+    </div>
+
+    <div class="flex justify-center items-center gap-1.5 mb-2.5">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="#FBBC05" class="rounded-full">
+            <path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="#FBBC05" class="rounded-full">
+            <path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="#FBBC05" class="rounded-full">
+            <path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="#FBBC05" class="rounded-full">
+            <path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/>
+        </svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" class="rounded-full">
+            <defs>
+                <linearGradient id="halfGrad">
+                    <stop offset="50%" stop-color="#FBBC05"/>
+                    <stop offset="50%" stop-color="#4B5563" stop-opacity="1"/>
+                </linearGradient>
+            </defs>
+            <path fill="url(#halfGrad)" d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/>
+        </svg>
+    </div>
+
+    <h3 class="text-white text-2xl font-bold mb-1">
+        4.5 <span class="text-lg font-medium text-gray-300">en Google Reviews</span>
+    </h3>
+    <a href="https://share.google/8EZ166xRilQU9r6GW"
+       target="_blank"
+       class="text-blue-400 text-sm hover:text-blue-300 transition-colors duration-200 underline">
+        +210 reseñas
+    </a>
+
+</div>
+</div>
+<div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto text-left">
+
+    <div class="bg-white/5 border border-white/10 rounded-xl p-5">
+
+        <div class="flex items-center gap-3 mb-3">
+
+            <img src="https://lh3.googleusercontent.com/a-/ALV-UjVcx_X7789j9-hL-uOOyFqbe52Vd09pTdKE0qEnGGhXc1v1Q9BgPQ=w76-h76-p-rp-mo-br100"
+                 alt="Perfil"
+                 class="w-10 h-10 rounded-full object-cover">
+
+            <div>
+                <p class="text-white text-sm font-medium">Claudia Farías</p>
+                <p class="text-white/40 text-xs">Google Review</p>
+            </div>
+
+        </div>
+
+        <p class="text-yellow-400 mb-2">★★★★★</p>
+
+        <p class="text-white/80 text-sm leading-relaxed">
+           Excelente lugar para compartir amigos y pareja. Muy lindo el lugar, hay mesas en terraza y dentro con otra ambientación.
+		   Me gustaron mucho los tragos que hay en la carta y la comida es muy buena.
+		   Felicitaciones por tan agradable lugar.
+
+    </div>
+
+    <div class="bg-white/5 border border-white/10 rounded-xl p-5">
+
+        <div class="flex items-center gap-3 mb-3">
+
+            <img src="https://lh3.googleusercontent.com/a-/ALV-UjUKQyAnzPz2KB9154saTCPcGtZOLfIZT0-x4oPeh0Y8wZWf7rQf8g=w76-h76-p-rp-mo-ba12-br100"
+                 alt="Perfil"
+                 class="w-10 h-10 rounded-full object-cover">
+
+            <div>
+                <p class="text-white text-sm font-medium">
+			Daniel Roman G</p>
+                <p class="text-white/40 text-xs">Google Review</p>
+            </div>
+
+        </div>
+
+        <p class="text-yellow-400 mb-2">★★★★★</p>
+
+        <p class="text-white/80 text-sm leading-relaxed">
+            “Muy buen lugar para pasar una tarde/noche agradable. Grato ambiente , buena música y muy rica la comida y tragos.
+             La atención fue buena y la espera fue adecuada para llevarnos los platos y tragos a la mesa.
+             Muy recomendable el lugar para el sector de peñaflor.”
+        </p>
+
+    </div>
+
+    <div class="bg-white/5 border border-white/10 rounded-xl p-5">
+
+        <div class="flex items-center gap-3 mb-3">
+
+            <img src="https://lh3.googleusercontent.com/a-/ALV-UjWzhvn7KvV1B5QEcF3UbBudqIf8aSlz7HT-YzfkJpR_8yMmk-kA=w76-h76-p-rp-mo-ba12-br100"
+                 alt="Perfil"
+                 class="w-10 h-10 rounded-full object-cover">
+
+            <div>
+                <p class="text-white text-sm font-medium">ScarletHowl</p>
+                <p class="text-white/40 text-xs">Google Review</p>
+            </div>
+
+        </div>
+
+        <p class="text-yellow-400 mb-2">★★★★★</p>
+
+        <p class="text-white/80 text-sm leading-relaxed">
+         Hermoso junto a la naturaleza.
+         Comida y bebida de calidad.
+         Increíble decorado y atención.
+         Recomendado, nos encanto! ♥️
+        </p>
+
+    </div>
+
+</div>
+<div class="fixed left-4 top-1/2 -translate-y-1/2 flex flex-col gap-3 z-50">
+
+    <a href="https://instagram.com/terraza_ibizaa" target="_blank"
+       class="w-12 h-12 flex items-center justify-center rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white shadow-lg transition-all duration-300 hover:brightness-125">
+        <i class="fa-brands fa-instagram text-xl"></i>
+    </a>
+
+    <a href="https://facebook.com/ibizavana" target="_blank"
+       class="w-12 h-12 flex items-center justify-center rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white shadow-lg transition-all duration-300 hover:brightness-125">
+        <i class="fa-brands fa-facebook-f text-lg"></i>
+    </a>
+
+</div>
+</body>
+</html>
