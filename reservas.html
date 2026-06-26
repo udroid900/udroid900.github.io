@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Reservas | Terraza Ibiza</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<style>
+body{
+    background:#000;
+    color:#fff;
+    font-family:system-ui;
+}
+.menu-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    width:52px;
+    height:52px;
+    border:none;
+    border-radius:16px;
+    background:rgba(255,255,255,.06);
+    backdrop-filter:blur(20px);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:5px;
+    cursor:pointer;
+    z-index:1002;
+}
+
+.menu-btn span{
+    width:22px;
+    height:2px;
+    background:#fff;
+    border-radius:999px;
+    transition:.3s;
+}
+
+.menu-btn.active span:nth-child(1){
+    transform:translateY(7px) rotate(45deg);
+}
+
+.menu-btn.active span:nth-child(2){
+    opacity:0;
+}
+
+.menu-btn.active span:nth-child(3){
+    transform:translateY(-7px) rotate(-45deg);
+}
+
+.menu-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.5);
+    opacity:0;
+    visibility:hidden;
+    transition:.3s;
+    z-index:1000;
+}
+
+.menu-overlay.active{
+    opacity:1;
+    visibility:visible;
+}
+
+.mobile-menu{
+    position:fixed;
+    top:0;
+    right:-280px;
+    width:270px;
+    height:100vh;
+    background:rgba(10,10,10,.98);
+    backdrop-filter:blur(30px);
+    padding-top:90px;
+    display:flex;
+    flex-direction:column;
+    transition:.35s ease;
+    z-index:1001;
+}
+
+.mobile-menu.active{
+    right:0;
+}
+
+.mobile-menu a{
+    color:#fff;
+    text-decoration:none;
+    padding:18px 28px;
+    font-size:16px;
+}
+
+.mobile-menu a:hover{
+    background:rgba(255,255,255,.05);
+}
+</style>
+</head>
+
+<body>
+<button id="menuBtn" class="menu-btn" aria-label="Menú">
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
+
+<div id="menuOverlay" class="menu-overlay"></div>
+
+<nav id="mobileMenu" class="mobile-menu">
+    <a href="index.html">Inicio</a>
+    <a href="carta.html">Ver Carta</a>
+    <a href="pedidosya.html">PedidosYa</a>
+    <a href="galeria.html">Galería</a>
+	<a href="ubicacion.html">Ubicación</a>
+	<a href="reservas.html">Reservar</a>
+
+    <div class="mt-auto text-center pb-10">
+        <p class="text-white/50 text-xs mb-4">
+            Lun - Jue · 17:30 — 01:30<br>
+            Vie - Sáb · 17:30 — 03:00
+        </p>
+
+        <img src="icon1.png" alt="Logo" class="w-16 mx-auto">
+    </div>
+</nav>
+
+<div class="max-w-5xl mx-auto px-6 py-10">
+
+    <h1 class="text-center text-3xl font-light tracking-[0.3em] mb-10">
+        RESERVAS
+    </h1>
+
+    <div class="grid md:grid-cols-2 gap-8">
+
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+
+            <h2 class="text-xl font-semibold mb-4">Reserva tu mesa</h2>
+
+            <form action="https://formspree.io/f/TU_ID_AQUI" method="POST" class="space-y-4">
+
+                <input type="text" name="nombre" placeholder="Nombre"
+                    class="w-full p-3 rounded-xl bg-black/40 border border-white/10 outline-none">
+
+                <input type="tel" name="telefono" placeholder="Número Whatsapp"
+                    class="w-full p-3 rounded-xl bg-black/40 border border-white/10 outline-none">
+
+                <input type="date" name="fecha"
+                    class="w-full p-3 rounded-xl bg-black/40 border border-white/10 outline-none">
+
+                <input type="number" name="personas" placeholder="Cantidad de personas"
+                    class="w-full p-3 rounded-xl bg-black/40 border border-white/10 outline-none">
+
+                <textarea name="mensaje" placeholder="Mensaje"
+                    class="w-full p-3 rounded-xl bg-black/40 border border-white/10 outline-none h-24"></textarea>
+
+                <button type="submit"
+                    class="w-full bg-yellow-400 text-black font-bold py-3 rounded-xl hover:opacity-90 transition">
+                    ENVIAR RESERVA
+                </button>
+
+            </form>
+
+        </div>
+
+        <div class="flex flex-col justify-center items-center text-center bg-white/5 border border-white/10 rounded-2xl p-8">
+
+            <i class="fa-brands fa-instagram text-5xl text-pink-500 mb-4"></i>
+
+            <h2 class="text-2xl font-semibold mb-2">
+                Escríbenos directo
+            </h2>
+
+            <p class="text-white/60 mb-6">
+                También puedes hacer tu reserva por Instagram
+            </p>
+
+            <a href="https://instagram.com/terraza_ibizaa" target="_blank"
+                class="bg-white/10 hover:bg-white/20 px-6 py-3 rounded-xl transition">
+                Ir a Instagram
+            </a>
+
+        </div>
+
+    </div>
+
+
+</div>
+<div class="fixed left-4 top-1/2 -translate-y-1/2 flex flex-col gap-3 z-50">
+
+    <a href="https://instagram.com/terraza_ibizaa" target="_blank"
+       class="w-12 h-12 flex items-center justify-center rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white shadow-lg transition-all duration-300 hover:brightness-125">
+        <i class="fa-brands fa-instagram text-xl"></i>
+    </a>
+
+    <a href="https://facebook.com/ibizavana" target="_blank"
+       class="w-12 h-12 flex items-center justify-center rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white shadow-lg transition-all duration-300 hover:brightness-125">
+        <i class="fa-brands fa-facebook-f text-lg"></i>
+    </a>
+
+</div>
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const mobileMenu = document.getElementById("mobileMenu");
+const menuOverlay = document.getElementById("menuOverlay");
+
+function toggleMenu(){
+    menuBtn.classList.toggle("active");
+    mobileMenu.classList.toggle("active");
+    menuOverlay.classList.toggle("active");
+}
+
+menuBtn.addEventListener("click", toggleMenu);
+
+menuOverlay.addEventListener("click", () => {
+    menuBtn.classList.remove("active");
+    mobileMenu.classList.remove("active");
+    menuOverlay.classList.remove("active");
+});
+</script>
+</body>
+</html>
